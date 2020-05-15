@@ -28,13 +28,11 @@
     <color name="baratheon_dark">#D78D06</color>
     <color name="baratheon_accent">#000000</color>
 
-    <color name="martel_primary">#C15828</color>
-    <color name="martel_dark">#AD3E23</color>
-    <color name="martel_accent">#951D1E</color>
+    <color name="martell_primary">#C15828</color>
+    <color name="martell_dark">#AD3E23</color>
+    <color name="martell_accent">#951D1E</color>
 
-    <color name="tyrel_primary">#6C9843</color>
-    <color name="tyrel_dark">#44651A</color>
-    <color name="tyrel_accent">#C9AE39</color>
-
-    <color name="ic_launcher_background">#123456</color>
+    <color name="tyrell_primary">#6C9843</color>
+    <color name="tyrell_dark">#44651A</color>
+    <color name="tyrell_accent">#C9AE39</color>
 </resources>

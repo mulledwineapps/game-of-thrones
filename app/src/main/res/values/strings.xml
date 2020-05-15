@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">GameOfThrones</string>
+    <string name="app_name">Game Of Thrones</string>
+    <string name="menu_search_title">Search</string>
 </resources>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--  для отступа на высоту статус бара нужно выставить
+    для AppBarLayout значение android:fitsSystemWindows="true" -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:expanded="false">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="Artos Stark"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="center_horizontal|bottom"
+            app:expandedTitleMarginBottom="64dp"
+            app:expandedTitleTextAppearance="@style/CollapsingTitleAppearance"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            app:toolbarId="@+id/toolbar">
+
+            <ru.skillbranch.gameofthrones.ui.custom.AspectRatioImageView
+                android:id="@+id/iv_arms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/stark"
+                app:layout_collapseMode="parallax"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:fitsSystemWindows="false"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:background="@android:color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <!-- так как в качестве иконки используется svg, которая по сути - векторная графика,
+            мы можем легко использовать именно тинт, чтобы перекрашивать её в необходимый цвет -->
+            <TextView
+                android:id="@+id/tv_words_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_icon_decor"
+                android:drawablePadding="8dp"
+                android:drawableTint="?attr/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:text="Words:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_words"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_words"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/color_gray"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_words_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_words_label" />
+
+            <TextView
+                android:id="@+id/tv_born_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_icon_decor"
+                android:drawablePadding="8dp"
+                android:drawableTint="?attr/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:text="Born:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_born"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_words" />
+
+            <TextView
+                android:id="@+id/tv_born"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/color_gray"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_born_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_born_label" />
+
+            <TextView
+                android:id="@+id/tv_titles_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_icon_decor"
+                android:drawablePadding="8dp"
+                android:drawableTint="?attr/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:text="Titles:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_titles"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_born" />
+
+            <TextView
+                android:id="@+id/tv_titles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:singleLine="false"
+                android:textColor="@color/color_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_titles_label"
+                app:layout_constraintTop_toTopOf="@+id/tv_titles_label" />
+
+            <TextView
+                android:id="@+id/tv_aliases_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_icon_decor"
+                android:drawablePadding="8dp"
+                android:drawableTint="?attr/colorAccent"
+                android:fontFamily="sans-serif-medium"
+                android:singleLine="false"
+                android:text="Aliases:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_aliases"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titles" />
+
+            <TextView
+                android:id="@+id/tv_aliases"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/color_gray"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_aliases_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_aliases_label" />
+
+            <!-- Эта группа необходима для того, чтобы мы могл применять групповые операции
+            для наших вью (это фича именно ConstraintLayout) -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_father"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv_father_label,btn_father"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_aliases" />
+
+            <TextView
+                android:id="@+id/tv_father_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="11dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="32dp"
+                android:singleLine="false"
+                android:text="Father:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/btn_father"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_father"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@+id/tv_father_label"
+                app:layout_constraintTop_toBottomOf="@id/tv_aliases" />
+
+            <!-- Barrier (появились в constraint) помогает выстраивать вьюхи относительно друг друга,
+            если по каким-то причинам вьюхи могут занимать изменяемую ширину или высоту
+            (в данном случае изменяемой считается высота, т.к. группа может не отображаться -->
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="btn_father,tv_father_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="149dp" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_mother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv_mother_label,btn_mother"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/tv_mother_label"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="11dp"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="32dp"
+                android:singleLine="false"
+                android:text="Mother:"
+                android:textColor="@color/color_gray_dark"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/btn_mother"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_mother"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@+id/tv_mother_label"
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

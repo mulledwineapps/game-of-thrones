@@ -293,7 +293,7 @@ class ExampleInstrumentedTest {
             acc.also { it.addAll(houses.swornMembers) }
         }
 
-        assertEquals(1777, actualCharacters?.size)
+        assertEquals(1567, actualCharacters?.size)
     }
 
     @Test
